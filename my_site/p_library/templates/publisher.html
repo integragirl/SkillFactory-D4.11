@@ -1,0 +1,16 @@
+{% load bootstrap4 %}
+{% bootstrap_css %}
+
+{% regroup publishers_books by publisher as publisher_list %}
+
+<ul>
+{% for publisher in publisher_list %}
+    <li>{{ publisher.grouper }}
+    <ul>
+        {% for item in publisher.list %}
+          <li>{{ item.book }}</li>
+        {% endfor %}
+    </ul>
+    </li>
+{% endfor %}
+</ul>
